@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Title</title>
+</head>
+<body>
+
+
+<input type="text" id="numberOne" value="">
+<input type="text" id="numberTwo" value=""><br>
+<button onclick="sum()"> +</button>
+<button onclick="multiply()"> *</button>
+<button onclick="divide()"> /</button>
+<button onclick="substract()"> -</button>
+<input type="number" id="operationsResult" value="">
+<hr>
+<br>
+<br>
+<img src="img/formula1.png">
+<span> <img src="img/formula2.png"></span>
+<hr>
+
+Uravnenie <span><input type="number" id="firstInput" value=""> x<sup>2</sup>+ <input type="number" id="secondInput" value=""> x+ <input type="number" id="thirdInput" value=""> = 0
+          </span>
+<button onclick="calculate()"> Calculate</button>
+<br>
+Diskriminant: <input type="number" id="diskriminant" value="">
+<br>
+x1 = <span> <input type="number" id="x1" value=""></span><br>
+x2 = <span><input type="number" id = "x2" value=""></span>
+<script type="text/javascript">
+
+
+    // 2 inputa , 4 knopki , mini kalkulator
+
+    function calculate() {
+        var inputOne = document.getElementById("firstInput").value;
+        var inputTwo = document.getElementById("secondInput").value;
+        var inputThree = document.getElementById("thirdInput").value;
+        var calculateDiskriminant = function () {
+            return  ((inputTwo * inputTwo) - 4 * inputOne * inputThree).toString();
+        };
+        document.getElementById("diskriminant").value = calculateDiskriminant();
+        var newDiscriminant = document.getElementById("diskriminant").value;
+        console.log(newDiscriminant);
+        if (newDiscriminant < 0){
+            console.log("Korni ne veshtvennie");
+        }
+        if (newDiscriminant === 0){
+            console.log("Oba kornja veshestvenni i ravni");
+        }
+        if (newDiscriminant > 0){
+            console.log("Dva razlichnih veshetvennih kornja");
+            var findFirstX = function () {
+                return ((-1 * inputTwo) + (Math.sqrt(newDiscriminant))) / (2 * inputOne);
+            };
+            var findSecondX = function () {
+                return ((-1 * inputTwo) - (Math.sqrt(newDiscriminant))) / (2 * inputOne);
+            };
+            document.getElementById("x1").value = findFirstX();
+            document.getElementById("x2").value = findSecondX();
+        }
+
+
+    }
+    function sum() {
+        var numberOne = document.getElementById("numberOne").value;
+        var firstnumber = parseInt(numberOne);
+        var numberTwo = document.getElementById("numberTwo").value;
+        var secondnumber = parseInt(numberTwo);
+
+        var result = function () {
+            return (firstnumber + secondnumber).toString()
+
+        };
+        document.getElementById("operationsResult").value = result();
+    }
+
+    function multiply() {
+        var numberOne = document.getElementById("numberOne").value;
+        var firstnumber = parseInt(numberOne);
+        var numberTwo = document.getElementById("numberTwo").value;
+        var secondnumber = parseInt(numberTwo);
+
+        var result = function () {
+            return (firstnumber * secondnumber).toString()
+
+        };
+        document.getElementById("operationsResult").value = result();
+    }
+
+    function divide() {
+        var numberOne = document.getElementById("numberOne").value;
+        var firstnumber = parseInt(numberOne);
+        var numberTwo = document.getElementById("numberTwo").value;
+        var secondnumber = parseInt(numberTwo);
+
+        var result = function () {
+            return (firstnumber / secondnumber).toString()
+
+        };
+        document.getElementById("operationsResult").value = result();
+    }
+
+    function substract() {
+        var numberOne = document.getElementById("numberOne").value;
+        var firstNumber = parseInt(numberOne);
+        var numberTwo = document.getElementById("numberTwo").value;
+        var secondNumber = parseInt(numberTwo);
+
+        var result = function () {
+            return (firstNumber - secondNumber).toString()
+
+        };
+        document.getElementById("operationsResult").value = result();
+
+    }
+
+
+    
+</script>
+</body>
+</html>
