@@ -41,13 +41,28 @@ x2 = <span><input type="number" id = "x2" value=""></span>
             return  ((inputTwo * inputTwo) - 4 * inputOne * inputThree).toString();
         };
         document.getElementById("diskriminant").value = calculateDiskriminant();
-        var newDiscriminant = document.getElementById("diskriminant").value;
+        var newDiscriminant = parseInt(document.getElementById("diskriminant").value);
         console.log(newDiscriminant);
         if (newDiscriminant < 0){
             console.log("Korni ne veshtvennie");
         }
         if (newDiscriminant === 0){
             console.log("Oba kornja veshestvenni i ravni");
+            var bothX = function () {
+                var findFirstX = function () {
+                    return ((-1 * inputTwo) + (Math.sqrt(newDiscriminant))) / (2 * inputOne);
+                };
+                var findSecondX = function () {
+                    return ((-1 * inputTwo) - (Math.sqrt(newDiscriminant))) / (2 * inputOne);
+                };
+                if (findFirstX() === findSecondX()){
+                }
+                return parseInt(findFirstX());
+            };
+
+            document.getElementById("x1").value = bothX();
+            document.getElementById("x2").value = bothX();
+
         }
         if (newDiscriminant > 0){
             console.log("Dva razlichnih veshetvennih kornja");
